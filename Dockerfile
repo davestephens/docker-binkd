@@ -1,5 +1,7 @@
 FROM gliderlabs/alpine:3.4
 
+MAINTAINER Dave Stephens <dave@force9.org>
+
 # we need to get requirements, clone binkd, compile it and remove the requirements
 # in one step. we do this to stop each command being saved as a separate layer, 
 # saving ~187mb!
