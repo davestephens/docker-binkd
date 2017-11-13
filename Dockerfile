@@ -25,6 +25,7 @@ RUN apk add build-base \
 
 VOLUME /config
 VOLUME /mail
+VOLUME /logs
 
 EXPOSE 24554
 
