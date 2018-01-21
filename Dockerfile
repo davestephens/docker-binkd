@@ -23,11 +23,16 @@ RUN apk add build-base \
         && apk del build-base gcc abuild binutils binutils-doc gcc-doc git \
         && rm -rf /tmp/binkd-src
 
+COPY scripts/poll_uplinks.sh /etc/periodic/hourly/poll_uplinks
+
+# override with something else to make the container poll your uplinks
+ENV UPLINKS=NONE
+
 VOLUME /config
 VOLUME /mail
 VOLUME /logs
 
 EXPOSE 24554
 
-ENTRYPOINT ["binkd"]
+ENTRYPOINT ["crond -L /logs/crond-binkd.log && binkd"]
 
