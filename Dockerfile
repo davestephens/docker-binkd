@@ -34,5 +34,5 @@ VOLUME /logs
 
 EXPOSE 24554
 
-ENTRYPOINT ["crond -L /logs/crond-binkd.log && binkd"]
+ENTRYPOINT ["binkd"]
 
